@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    cout.precision(4);
+    double a,b,c,d,f;
+    cin >> a >> b >> c >> d >> f;
+    double p1 = (a+b+f)/2;
+    double p2 = (c+d+f)/2;
+    double s1 = sqrt(p1*(p1-a)*(p1-b)*(p1-f));
+    double s2 = sqrt(p2*(p2-d)*(p2-c)*(p2-f));
+    cout << fixed << s1+s2;
+    return 0;
+}

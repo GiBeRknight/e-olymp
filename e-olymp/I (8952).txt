@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    cout.precision(3);
+    int x1,y1,z1,x2,y2,z2,x3,y3,z3;
+    cin >> x1 >> y1 >> z1 >> x2 >> y2 >> z2 >> x3 >> y3 >>z3;
+    double a = sqrt(pow(x2-x1,2)+pow(y2-y1,2)+pow(z2-z1,2));
+    double b = sqrt(pow(x3-x2,2)+pow(y3-y2,2)+pow(z3-z2,2));
+    double c = sqrt(pow(x1-x3,2)+pow(y1-y3,2)+pow(z1-z3,2));
+    //cout << a << " " << b << " " << c << endl;
+    double p = (a+b+c)/2;
+    double s = sqrt(p*(p-a)*(p-b)*(p-c));
+    double svpis = pow(s/p,2)*M_PI;
+    double sopis = pow((a*b*c)/(4*s),2)*M_PI;
+    double result = svpis/sopis;
+    string str = to_string(result).substr(0,5);
+    if (str=="0.000") cout << "Zero!";
+    else cout << fixed << svpis/sopis;
+    return 0;
+}

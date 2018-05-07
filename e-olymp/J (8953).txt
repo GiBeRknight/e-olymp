@@ -1,0 +1,35 @@
+Исходный код
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    int n,k=1;
+    int x1,y1,x2,y2,x3,y3,x4,y4;
+    cin >> n;
+    while(n--)
+    {
+        cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> x4 >> y4;
+        double a = sqrt(pow(x2-x1,2)+pow(y2-y1,2));
+        double b = sqrt(pow(x3-x2,2)+pow(y3-y2,2));
+        double c = sqrt(pow(x4-x3,2)+pow(y4-y3,2));
+        double d = sqrt(pow(x1-x4,2)+pow(y1-y4,2));
+        if (a==b && b==c && c==d && a==c && a==d && b==d)
+        {
+            double d1=sqrt(pow(x3-x1,2)+pow(y3-y1,2));
+            double d2=sqrt(pow(x4-x2,2)+pow(y4-y2,2));
+            if(d1==d2) cout << "Case " << k << ": " <<"Square\n";
+            else cout << "Case " << k << ": " << "Rhombus\n";
+        }
+        else
+        {
+            if(a==c && b==d) cout << "Case " << k << ": " << "Rectangle\n";
+            else cout << "Case " << k << ": " << "Other\n";
+        }
+        k++;
+    }
+    return 0;
+}

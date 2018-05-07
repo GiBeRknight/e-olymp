@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double getScalar(int x1, int y1, int x2, int y2)
+{
+    return x1*x2 + y1*y2;
+}
+
+double getLength(int x, int y)
+{
+    return sqrt(x*x + y*y);
+}
+
+int main()
+{
+    std::cout.precision(5);
+    int x1 = 1, x2, y1 = 0, y2;
+    std::cin >> x2 >> y2;
+    double scalar = getScalar(x1, y1, x2, y2);
+    double angle = scalar/(getLength(x1, y1) * getLength(x2, y2));
+    std::cout << std::fixed << acos(angle);
+    return 0;
+}

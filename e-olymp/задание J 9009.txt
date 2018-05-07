@@ -1,0 +1,32 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip> 
+using namespace std;
+
+int main() {
+double x1;
+double y1;
+int r1;
+double x2;
+double y2;
+int r2;
+cin>>x1;
+cin>>y1;
+cin>>r1;
+cin>>x2;
+cin>>y2;
+cin>>r2;
+if(x1==x2 && y1==y2 )
+{
+ if(r1>r2)
+ cout<<x1+r1/2<<" "<<y1<<endl<<x2<<" "<<y2;
+ else
+ cout<<x1<<" "<<y1<<endl<<x2+r2/2<<" "<<y2;
+}
+else
+{
+ cout<<x1<<" "<<y1<<endl<<x2<<" "<<y2;
+}
+
+ return 0;
+}

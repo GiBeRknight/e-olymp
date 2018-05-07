@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+double mod(int val1,int val2)
+{
+    return sqrt(val1*val1 + val2*val2);
+}
+int main()
+{
+    int x0,y0,x1,y1,x2,y2,x3,y3;
+    cin >> x0 >> y0 >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+    vector<int> v = {x0-x1,y0-y1,x1-x2,y1-y2,x2-x3,y2-y3,x3-x0,y3-y0};
+    double modA,modB,scalar;
+    int count=0;
+    for(int i=0;;i+=2)
+    {
+        if(i==6)
+        {
+            modA = sqrt(v[i]*v[i] + v[i+1]*v[i+1]);
+            modB = sqrt(v[0]*v[0] + v[1]*v[1]);
+            scalar = v[i]*v[0] + v[i+1]*v[1];
+            if (cos(scalar/(modA*modB))==1) count++;
+            break;
+        }
+        else
+        {
+            modA = sqrt(v[i]*v[i] + v[i+1]*v[i+1]);
+            modB = sqrt(v[i+2]*v[i+2] + v[i+3]*v[i+3]);
+            scalar = v[i]*v[i+2] + v[i+1]*v[i+3];
+            if (cos(scalar/(modA*modB))==1) count++;
+        }
+    }
+    cout << count;
+    return 0;
+}

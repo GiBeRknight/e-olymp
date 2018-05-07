@@ -1,0 +1,16 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    double x1,y1;
+    double x2,y2;
+    double relation;
+    cin >> x1 >> y1 >> x2 >> y2 >> relation;
+    double x3,y3;
+    x3 = (x1+relation*x2)/(1+relation);
+    y3 = (y1+relation*y2)/(1+relation);
+    cout << fixed << setprecision(2) << x3  << " " << y3  << endl;
+    return 0;
+}

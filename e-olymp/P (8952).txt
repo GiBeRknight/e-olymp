@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    cout.precision(2);
+    double s,a;
+    cin >> s >> a;
+    double d = a*a+(4*2*s);
+    double h = (-a+sqrt(d))/2;
+    cout << fixed << h;
+
+    return 0;
+}

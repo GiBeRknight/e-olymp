@@ -1,0 +1,14 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    cout.precision(4);
+    int a;
+    cin >> a;
+    cout << fixed << static_cast<double>(a*3) << " " << a*a*sqrt(3)/4;
+    return 0;
+}

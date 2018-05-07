@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    int a,b,c;
+    cin >> a >> b >> c;
+    if((a+b<=c) || (b+c<=a) || (a+c<=b)) cout << "IMPOSSIBLE";
+    else
+    {
+        double alfa= b*b+c*c-a*a;
+        double gamma=a*a+b*b-c*c;
+        double betta=a*a+c*c-b*b;
+        //cout << alfa << " " << betta << " " << gamma << endl;
+        if (alfa==0 || betta==0 || gamma==0) cout << "RIGHT";
+        else if (alfa<0 || betta<0 || gamma<0) cout << "OBTUSE";
+        else cout << "ACUTE";
+    }
+    return 0;
+}

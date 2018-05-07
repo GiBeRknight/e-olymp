@@ -1,0 +1,15 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    cout.precision(2);
+    double s,r,R;
+    cin >> s >> R;
+    r = sqrt(R*R-s/M_PI);
+    cout << fixed <<r;
+    return 0;
+}

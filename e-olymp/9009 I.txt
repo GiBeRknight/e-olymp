@@ -1,0 +1,74 @@
+#include <iostream>
+
+using namespace std;
+
+
+struct Point2f
+{
+    double x;
+    double y;
+
+    Point2f(double X, double Y)
+    {
+        x = X;
+        y = Y;
+    }
+
+    Point2f()
+    {
+        x = 0;
+        y = 0;
+    }
+
+    friend istream& operator>> ( istream& is, Point2f& dt );
+};
+
+istream& operator>> ( istream& is, Point2f& dt )
+{
+    is >> dt.x >> dt.y;
+    return is;
+}
+
+int main()
+{
+    Point2f A(1,0),
+            B(2,2),
+            C(0,1),
+            D(1,2);
+
+    std::cin >> A >> B >> C >> D;
+
+    double Ax = B.x - A.x,
+            Ay = A.y - B.y,
+            Cc = A.x * B.y - B.x*A.y,
+            Cy = C.y - D.y,
+            Cx = D.x - C.x,
+            Dd = C.x*D.y - D.x*C.y;
+
+    double det = Ay*Cx - Ax*Cy;
+    double det1 = -Ay*Dd + Cc*Cy;
+    double det2 = -Cc*Cx + Ax*Dd;
+
+    if((Ay*C.x + Ax*C.y + Cc) == 0 && (Ay*D.x + Ax*D.y + Cc) == 0 &&
+            (Cy*A.x + Cx*A.y + Dd) == 0 && (Cy*B.x + Cx*B.y + Dd) == 0)
+    {
+        std::cout << 2 << std::endl;
+        return 0;
+    }
+
+    if(det==0)
+    {
+        std::cout << 0 << std::endl;
+        return 0;
+    }
+
+    double y = Cy*Cc - Ay*Dd;
+    y /= Cx*Ax - Cy*Ay;
+
+    double x = (-Cc - Ax*y)/Ay;
+
+    std::cout.precision(7);
+    std::cout << 1 << std::endl << std::fixed << det2/det << " " << det1/det;
+
+    return 0;
+}

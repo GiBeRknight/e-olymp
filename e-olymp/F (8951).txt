@@ -1,0 +1,14 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    cout.precision(8);
+    double s1,s2,s3;
+    cin >> s1 >> s2 >> s3;
+    cout << fixed << pow(sqrt(s1)+sqrt(s2)+sqrt(s3),2);
+    return 0;
+}
