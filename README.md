@@ -1,1 +1,1 @@
-# e-olymp
+# graphics and e-olimp
